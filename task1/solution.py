@@ -13,5 +13,4 @@ def what_is_my_sign(day, month):
     for key, value in SIGNS.items():
         if zodiac_code in value:
             return key
-        else:
-            "Козирог"
+    return "Козирог"
