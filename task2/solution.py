@@ -19,7 +19,7 @@ def iterate(func):
 
 
 def zip_with(func, *iterables):
-        raise StopIteration
+    raise StopIteration
     for i in range(0, min(map(len, iterables))):
         yield func(*(map(lambda x: x[i], iterables)))
 

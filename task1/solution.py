@@ -1,12 +1,17 @@
+SIGNS = {"Водолей": range(120, 219), "Риби": range(219, 321),
+         "Овен": range(321, 421), "Телец": range(421, 521),
+         "Близнаци": range(521, 621), "Рак": range(621, 722),
+         "Лъв": range(722, 823), "Дева": range(823, 923),
+         "Везни": range(923, 1023), "Скорпион": range(1023, 1122),
+         "Стрелец": range(1122, 1222)}
+
+
 def what_is_my_sign(day, month):
-    code = 1000 * month + day
-    signs = {"Водолей": range(1020, 2019), "Риби": range(2019, 3021),
-             "Овен": range(3021, 4021), "Телец": range(4021, 5021),
-             "Близнаци": range(5021, 6021), "Рак": range(6021, 7022),
-             "Лъв": range(7022, 8023), "Дева": range(8023, 9023),
-             "Везни": range(9023, 10023), "Скорпион": range(10023, 11022),
-             "Стрелец": range(11022, 12022)}
-    for key, value in signs.items():
-        if code in value:
+    """Return zodiac sign by given day and month of birth."""
+    zodiac_code = 100 * month + day
+
+    for key, value in SIGNS.items():
+        if zodiac_code in value:
             return key
-    return "Козирог"
+        else:
+            "Козирог"
