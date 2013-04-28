@@ -7,10 +7,9 @@ class Person:
         self._children = []
         self.father = father
         self.mother = mother
-        if father:
-            father._children += [self]
-        if mother:
-            mother._children += [self]
+        for parent in mother, father:
+            if parent:
+                parent._children += [self]
 
     def get_brothers(self):
         return self.get_siblings("M")
@@ -19,12 +18,8 @@ class Person:
         return self.get_siblings("F")
 
     def get_siblings(self, gender):
-        siblings = []
-        if self.father:
-            siblings += self.father.children(gender)
-        if self.mother:
-            siblings += self.mother.children(gender)
-        return sorted(set(siblings) - {self})
+        return sorted(set(self.father.children(gender) +
+                          self.mother.children(gender)) - {self})
 
     def children(self, gender=None):
         if gender:
